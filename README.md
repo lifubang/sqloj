@@ -29,25 +29,32 @@ where DEPT_ID is the department ID number, NAME is the department name (category
 The output must contain 4 columns: "Employee Name", "Salary", "Department Name", and "location".
 
 ## 输入样例
+```sql
 create table Department(dept_id int primary key not null, name varchar(30),location varchar(20));
 insert into Department(dept_id,name,location) values(1,'Recruitment','Bangalore');
 insert into Department(dept_id,name,location) values(2,'Sales','U.S.A');
 
 create table Employee (id int, name varchar(20), salary int, dept_id int, foreign key(dept_id) references Department(dept_id));
 insert into Employee(id, name, salary,dept_id) values (1, 'Hari', 5000,2);
+```
 
 
 ## 输出样例
+```
 Employee Name	Salary	Department Name	location
 Hari	5000	Sales	U.S.A
+```
 
 ## 标程
+```sql
 SELECT e.name AS "Employee Name", e.salary AS Salary, d.name AS "Department Name", d.location
 FROM Employee e
 INNER JOIN Department d ON e.dept_id=d.dept_id
 ORDER BY e.salary DESC, e.name ASC;
+```
 
 ## 测试用例一输入
+```sql
 create table Department(dept_id int primary key not null, name varchar(30),location varchar(20));
 insert into Department(dept_id,name,location) values(1,'Recruitment','Bangalore');
 insert into Department(dept_id,name,location) values(2,'Sales','U.S.A');
@@ -74,8 +81,10 @@ insert into Employee(id, name, salary,dept_id) values (2, 'Heraldo', 1500,1);
 insert into Employee(id, name, salary,dept_id) values (14, 'Abhilasha',600,2);
 insert into Employee(id, name, salary,dept_id) values (15, 'Rachael', 1234,1);
 insert into Employee(id, name, salary,dept_id) values (16, 'Dean', 3454,6);
+```
 
 ## 测试用例一输出
+```
 Employee Name	Salary	Department Name	location
 Vivek	6000	Recruitment	Bangalore
 Hari	5000	Sales	U.S.A
@@ -93,6 +102,7 @@ Jessica	600	Sales	U.S.A
 Stephinie	400	Product	Bangalore
 John	250	Engineering	Kolkata
 Mike	100	Engineering	Kolkata
+```
 
 ## 测试用例二输入
 ## 测试用例二输出
